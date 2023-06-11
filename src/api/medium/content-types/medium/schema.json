@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "media",
+  "info": {
+    "singularName": "medium",
+    "pluralName": "media",
+    "displayName": "media",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "credits": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "medium": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "usage": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::usage.usage",
+      "inversedBy": "media"
+    }
+  }
+}
