@@ -4,7 +4,8 @@
   "info": {
     "singularName": "usage",
     "pluralName": "usages",
-    "displayName": "usage"
+    "displayName": "usage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -28,6 +29,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::location.location",
+      "private": true,
       "inversedBy": "usages"
     },
     "media": {
