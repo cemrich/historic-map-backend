@@ -13,6 +13,7 @@ module.exports = createCoreController('api::location.location', ({ strapi }) => 
       ...ctx.query,
       // deeply populate all relations
       'populate[usages][populate][media][populate]': '*',
+      'populate[coordinates][populate]': '*',
     };
 
     // Calling the default core action
@@ -28,6 +29,7 @@ module.exports = createCoreController('api::location.location', ({ strapi }) => 
 function sanitizeLocation(location) {
   location = removeSystemProperties(location);
   location.attributes.usages.data = location.attributes.usages.data.map(sanitizeUsage);
+  location.attributes.coordinates = removeSystemProperties(location.attributes.coordinates);
   return location;
 }
 
@@ -82,7 +84,14 @@ function sanitizeFormat(format) {
 
 function removeSystemProperties(model) {
   delete model.id;
-  delete model.attributes.createdAt;
-  delete model.attributes.updatedAt;
+
+  if (model.attributes?.createdAt) {
+    delete model.attributes.createdAt;
+  }
+
+  if (model.attributes?.updatedAt) {
+    delete model.attributes.updatedAt;
+  }
+
   return model;
 }
