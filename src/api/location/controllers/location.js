@@ -41,7 +41,7 @@ function sanitizeUsage(usage) {
 
 function sanitizeMedia(media) {
   media = removeSystemProperties(media);
-  media.attributes.medium.data = sanitizeMedium(media.attributes.medium.data);
+  media.attributes = { ...media.attributes, ...sanitizeMedium(media.attributes.medium.data) };
   return media;
 }
 
