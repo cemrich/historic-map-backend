@@ -36,8 +36,6 @@ services:
       MYSQL_DATABASE: ${DATABASE_NAME}
     volumes:
       - ./data/db:/var/lib/mysql
-    ports:
-      - '3306:3306'
     networks:
       - historic-map
 
