@@ -8,12 +8,16 @@
   "options": {},
   "attributes": {
     "latitude": {
-      "type": "decimal",
-      "required": true
+      "type": "float",
+      "required": true,
+      "max": 90,
+      "min": -90
     },
     "longitude": {
-      "type": "decimal",
-      "required": true
+      "type": "float",
+      "required": true,
+      "max": 180,
+      "min": -180
     }
   }
 }
