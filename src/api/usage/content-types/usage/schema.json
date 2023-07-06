@@ -19,11 +19,14 @@
     "description": {
       "type": "richtext"
     },
-    "from_date": {
-      "type": "date"
+    "from_year": {
+      "type": "integer",
+      "max": 2100
     },
-    "to_date": {
-      "type": "date"
+    "to_year": {
+      "type": "integer",
+      "required": false,
+      "max": 2100
     },
     "location": {
       "type": "relation",
